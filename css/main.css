@@ -1,0 +1,309 @@
+body
+{
+	background-image: url('../img/backgrounds/romina.jpg');
+}
+
+#content
+{
+	width: 1100px;
+	margin-left: 100px;
+}
+
+#mainLogo img
+{
+	width: 588px;
+	height: 129px;
+	margin-left: 120px;
+	margin-top: 25px;
+}
+
+#menuAndBanner
+{
+	margin-top: 25px;
+	display: block;
+	height: 250px;
+}
+
+#menu
+{
+	float: left;
+	width: 185px;
+}
+
+#listMenu
+{
+	margin: 0px;
+}
+
+#listMenu li
+{
+	width: 185px;
+	text-align: right;
+	list-style: none;
+	padding-top: 7px;
+	padding-bottom: 8px;
+	padding-right: 10px;
+	transition-property: sliding, right, left;
+	transition-duration: 1s;
+	transition-timing-function: linear;
+	transition-delay: 0s;
+
+	-o-transition-property: sliding, right, left;
+	-o-transition-duration: 1s;
+	-o-transition-timing-function: linear;
+	-o-transition-delay: 0s;
+
+	-moz-transition-property: sliding, right, left;
+	-moz-transition-duration: 1s;
+	-moz-transition-timing-function: linear;
+	-moz-transition-delay: 0s;
+
+	-webkit-transition-property: sliding, right, left;
+	-webkit-transition-duration: 1s;
+	-webkit-transition-timing-function: linear;
+	-webkit-transition-delay: 0s;
+}
+
+#listMenu li:hover
+{
+	transition-property: sliding, right, left;
+	transition-duration: 1s;
+	transition-timing-function: linear;
+	transition-delay: 0s;
+
+	-o-transition-property: sliding, right, left;
+	-o-transition-duration: 1s;
+	-o-transition-timing-function: linear;
+	-o-transition-delay: 0s;
+
+	-moz-transition-property: sliding, right, left;
+	-moz-transition-duration: 1s;
+	-moz-transition-timing-function: linear;
+	-moz-transition-delay: 0s;
+
+	-webkit-transition-property: sliding, right, left;
+	-webkit-transition-duration: 1s;
+	-webkit-transition-timing-function: linear;
+	-webkit-transition-delay: 0s;
+}
+
+#listMenu a
+{
+	font-style: none;
+	color: #FFFFFF;
+	font-size: 17px;
+	font-weight: bolder;
+}
+
+#listMenu #bio
+{
+	background-image: url('../img/alphaBacks/biographyMenu.png');
+}
+
+#listMenu #discography
+{
+	background-image: url('../img/alphaBacks/discographyMenu.png');
+}
+
+#listMenu #videos
+{
+	background-image: url('../img/alphaBacks/videosMenu.png');
+}
+
+#listMenu #galery
+{
+	background-image: url('../img/alphaBacks/galeryMenu.png');
+}
+
+#listMenu #news
+{
+	background-image: url('../img/alphaBacks/newsMenu.png');
+}
+
+#listMenu #downloads
+{
+	background-image: url('../img/alphaBacks/downloadsMenu.png');
+}
+
+#listMenu #contact
+{
+	background-image: url('../img/alphaBacks/contactMenu.png');
+}
+
+#banner
+{
+	float: left;
+	width: 633px;
+	height: 245px;
+	margin-left: 7px;
+}
+
+#sotialNetworks
+{
+	display: inline-block;
+	margin-top: 20px;
+	width: 189px;
+	background-image: url('../img/alphaBacks/sotialNetworks.png');
+}
+
+#sotialNetworks a
+{
+	width: 50px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#sotialNetworks img
+{
+	width: 44px;
+}
+
+#phrase
+{
+	font-weight: bolder;
+	background-image: url('../img/alphaBacks/sotialNetworks.png');
+	color: #FFFFFF;
+	text-align: center;
+	width: 189px;
+	height: 152px;
+}
+
+#phrase #firstPhrase
+{
+	padding-top: 25px;
+	font-size: 25px;
+}
+
+#phrase #secondPhrase
+{
+	font-size: 31px;
+	padding-top: 5px;
+}
+
+#phrase #thirdPhrase
+{
+	font-size: 38px;
+	padding-top: 12px;
+}
+
+#music
+{
+	display: inline-block;
+	margin-left: 120px;
+}
+
+#twitterTimeline
+{
+	display: inline-block;
+	margin-left: 120px;
+}
+
+#divisorPink
+{
+	background-image: url('../img/backgrounds/divisor.jpg');
+}
+
+#foo_logoAndSotialNetworks
+{
+	float: left;
+	width: 196px;
+}
+
+#foo_logo img
+{
+	margin-top: 30px;
+	width: 150px;
+	margin-bottom: 5px;
+}
+
+#foo_sotialNetworks img
+{
+	width: 35px;
+}
+
+#foo_menuSections
+{
+	float: left;
+	width: 82px;
+	margin-right: 25px;
+}
+
+#foo_menuSectionsList
+{
+	list-style: none;
+	font-size: 10px;
+	color: #B7B7B7;
+	font-weight: bold;
+	margin: 0px;
+}
+
+#foo_menuSectionsList ul
+{
+	margin: 0px;
+}
+
+#foo_menuSectionsList li
+{
+	line-height: 15px;
+}
+
+#foo_menuSectionsList a
+{
+	font-style: none;
+	color: #B7B7B7;
+	font-weight: bold;
+}
+
+#foo_news
+{
+	float: left;
+	width: 175px;
+}
+
+#foo_videos
+{
+	float: left;
+	width: 157px;
+}
+
+#foo_menuSectionsTitle, #foo_newsTitle, #foo_videosTitle
+{
+	cursor: default;
+	font-weight: bolder;
+	color: #F7B61C;
+	font-size: 12px;
+}
+
+#foo_sponsors
+{
+	float: left;
+	width: 210px;
+	margin-right: 20px;
+}
+
+#topSponsors img
+{
+	max-width: 65px;
+	margin-bottom: 10px;
+}
+
+#bottomSponsors
+{
+	margin-left: 15px;
+}
+
+#foo_developers
+{
+	float: left;
+	width: 120px;
+	margin-top: 30px;
+}
+
+#foo_developersTitle
+{
+	cursor: default;
+	font-weight: bolder;
+	color: #F7B61C;
+	font-size: 12px;
+	text-align: center;
+}
