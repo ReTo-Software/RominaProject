@@ -230,16 +230,16 @@
 		</div>
 	</div>
 
-
 	<!--Content--> 
 	<div id="mainContent">
 		<div id="divisorPink">
 			<label id="divisorName">
-				LO &Uacute;LTIMO
+				NOTICIAS
 			</label>
 		</div>
-		<div id="blockContent">
-			<div id="columns">
+
+		<div id="content">
+			<div class="colums">
 				<?php 
 					include_once('protected/mysql.php');
 
@@ -254,27 +254,27 @@
 
 					$result = $bd->query('SELECT * FROM news');
 
-					$i = 0;
 					while ( $row = mysql_fetch_assoc($result) )	
 					{
 						$img = $row['image'];
 						$title = $row['title'];
+						$url = $row['url'];
 						$resume = $row['resume'];
 
-						echo '<div class="pin">';
-						echo '<img src="img/news/'.$img.'">';
-						echo '<h3>'.$title.'</h3>';
-						echo '<p>'.$resume.'</p>';
+						echo '<div id="new">';
+						echo '<img src="img/galery/'.$url.'">';
+						echo '<div id="newTitle"><a href="'.$url.'">'.$nombre.'</a></div>';
 						echo '</div>';
 					}
 					$bd->desconectar();
-				?>
-		 	</div>
-		</div>
+
+				 ?>
+			</div>
+		 </div>
 	</div>
+</div>
 	<!--End Content-->
 
-</div>
 	<!--Footer-->
 	<div id="footer">
 		<div id="foo_content">

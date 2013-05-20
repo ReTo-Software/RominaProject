@@ -230,47 +230,58 @@
 		</div>
 	</div>
 
-
 	<!--Content--> 
 	<div id="mainContent">
 		<div id="divisorPink">
 			<label id="divisorName">
-				LO &Uacute;LTIMO
+				DISCOGRAF&Iacute;A
 			</label>
 		</div>
-		<div id="blockContent">
-			<div id="columns">
-				<?php 
-					include_once('protected/mysql.php');
 
-					#Content IDs holders
-					$idTxt = ''; 
+		<?php 
+			include_once('protected/mysql.php');
 
-					#New Mysql
-					$bd = new MYSQL;
+			#Content IDs holders
+			$idTxt = ''; 
 
-					#Connection to Database
-					$bd->conectar();
+			#New Mysql
+			$bd = new MYSQL;
 
-					$result = $bd->query('SELECT * FROM news');
+			#Connection to Database
+			$bd->conectar();
 
-					$i = 0;
-					while ( $row = mysql_fetch_assoc($result) )	
-					{
-						$img = $row['image'];
-						$title = $row['title'];
-						$resume = $row['resume'];
+			$result = $bd->query('SELECT * FROM disks');
 
-						echo '<div class="pin">';
-						echo '<img src="img/news/'.$img.'">';
-						echo '<h3>'.$title.'</h3>';
-						echo '<p>'.$resume.'</p>';
-						echo '</div>';
-					}
-					$bd->desconectar();
-				?>
-		 	</div>
-		</div>
+			$i = 0;
+			while ( $row = mysql_fetch_assoc($result) )	
+			{
+				if (i>0)
+					echo '<div id="divisorPinkSmall"></div>';
+
+				$caratula = $row['caratula'];
+				$nombre = $row['nombre'];
+				$anio = $row['anio'];
+				$disquera = $row['disquera'];
+				$canciones = $row['canciones'];
+
+				echo '<div id="disk">';
+				echo '<img src="img/disks'.$caratula.'">';
+				echo '</div>';
+
+				echo '<label class="subtitle">NOMBRE DEL ALBUM</label>';
+				echo '<p>'.$nombre.'</p>';
+				echo '<label class="subtitle">A&Ntilde;O</label>';
+				echo '<p>'.$anio.'</p>';
+				echo '<label class="subtitle">DISQUERA</label>';
+				echo '<p>'.$disquera.'</p>';
+				echo '<label class="subtitle">CANCIONES</label>';
+				echo '<p>'.$canciones.'</p>';
+
+				$i++;
+			}
+			$bd->desconectar();
+
+		 ?>
 	</div>
 	<!--End Content-->
 

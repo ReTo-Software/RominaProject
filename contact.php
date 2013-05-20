@@ -230,47 +230,42 @@
 		</div>
 	</div>
 
-
 	<!--Content--> 
 	<div id="mainContent">
 		<div id="divisorPink">
 			<label id="divisorName">
-				LO &Uacute;LTIMO
+				CONTACTO
 			</label>
 		</div>
-		<div id="blockContent">
-			<div id="columns">
-				<?php 
-					include_once('protected/mysql.php');
 
-					#Content IDs holders
-					$idTxt = ''; 
+		<div id="content">
+			<?php 
+				include_once('protected/mysql.php');
 
-					#New Mysql
-					$bd = new MYSQL;
+				#Content IDs holders
+				$idTxt = ''; 
 
-					#Connection to Database
-					$bd->conectar();
+				#New Mysql
+				$bd = new MYSQL;
 
-					$result = $bd->query('SELECT * FROM news');
+				#Connection to Database
+				$bd->conectar();
 
-					$i = 0;
-					while ( $row = mysql_fetch_assoc($result) )	
-					{
-						$img = $row['image'];
-						$title = $row['title'];
-						$resume = $row['resume'];
+				$result = $bd->query('SELECT * FROM downloads');
 
-						echo '<div class="pin">';
-						echo '<img src="img/news/'.$img.'">';
-						echo '<h3>'.$title.'</h3>';
-						echo '<p>'.$resume.'</p>';
-						echo '</div>';
-					}
-					$bd->desconectar();
-				?>
-		 	</div>
-		</div>
+				while ( $row = mysql_fetch_assoc($result) )	
+				{
+					$image = $row['image'];
+					
+					echo '<div id="download">';
+					echo '<img src="img/galery/'.$url.'">';
+					echo '	<input type="button" class="btn btn-warning" value="Descarga">';
+					echo '</div>';
+				}
+				$bd->desconectar();
+
+			 ?>
+		 </div>
 	</div>
 	<!--End Content-->
 

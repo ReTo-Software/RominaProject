@@ -1,5 +1,5 @@
 <?php
-include("login-update/include/session.php");
+include("plugins/login-update/include/session.php");
 
 if( ( $session->logged_in and $session->isAdmin() ) ){
 	// header( 'Location: ./' );
@@ -28,7 +28,7 @@ function rt_id_decode( $id ){
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title>TÍTULO PÁGINA</title>
+	<title>ROMINA - ADMINISTRADOR -</title>
 	
 	<!--##################################################-->
 	<!--FAVICON-->
@@ -40,7 +40,7 @@ function rt_id_decode( $id ){
 	<!--STYLESHEETS-->
 
 		<!--Bootstrap-->
-			<link rel="stylesheet" href="css/bootstrap.min.css">
+			<link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
 		<!--End Bootstrap-->
 
 		<!--JQuery-->
@@ -71,7 +71,7 @@ function rt_id_decode( $id ){
 		<!--End Bootstrap-->
 
 		<!--JQuery-->
-			<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script> 
+			<script type="text/javascript" src="plugins/jquery/jquery-1.9.1.min.js"></script> 
 			<!-- <script type="text/javascript" src="js/jquery.tweet.js"></script> -->
 			<!-- <script type="text/javascript" src="js/jquery.mCustomScrollbar.js"></script> -->
 			<!-- <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script> -->
@@ -83,9 +83,9 @@ function rt_id_decode( $id ){
 				<!-- <script type="text/javascript" src="js/nivo-slider/jquery.nivo.slider.js"></script> -->
 			<!--End NivoSlider-->
 			<!--CkEditor-->
-				<script type="text/javascript" src="js/ckeditor/ckeditor.js"></script>
-				<script type="text/javascript" src="js/ckeditor/styles.js"></script>
-				<script type="text/javascript" src="js/ckeditor/lang/else.js"></script>
+				<script type="text/javascript" src="plugins/ckeditor/ckeditor.js"></script>
+				<script type="text/javascript" src="plugins/ckeditor/styles.js"></script>
+				<script type="text/javascript" src="plugins/ckeditor/lang/es.js"></script>
 			<!--End CkEditor-->
 		<!--End Plugins-->
 
@@ -100,8 +100,8 @@ function rt_id_decode( $id ){
 	<?php 
 		if( ($session->logged_in and $session->isAdmin()) )
 		{
-			echo "Bienvenido <b>$session->username</b>.";
-			echo "[<a href=\"login-update/process.php\">Cerrar sesi&oacute;n</a>]";
+			//echo "Bienvenido <b>$session->username</b>.";
+			
 		}		
 	?>
 
@@ -111,7 +111,7 @@ function rt_id_decode( $id ){
 			<div class="wrapper">
 				<!--Returning Image-->
 				<a href="./">
-					<img id="logo" src="img/Logo.png" title="Regresar" alt="UDM Logo">
+					<!--img id="logo" src="img/Logo.png" title="Regresar" alt="UDM Logo"-->
 				</a>
 			</div>
 		</div>
@@ -129,7 +129,7 @@ function rt_id_decode( $id ){
 		<!--Inside Content: Administrator List-->
 		<div id="mainTab" class="tab-content bgFade">
 			<!--Main Logo-->
-			<img src="img/logos/logoPrincipal.png">
+			<img src="img/logos/rominaLogo.png"><br>
 
 			<!--Title Administrator List-->
 			<H3 style="text-align: center; display: inline;">M&oacute;dulo de administraci&oacute;n</H3>
@@ -137,29 +137,40 @@ function rt_id_decode( $id ){
 			<!--Option List-->
 			<select name="" id="" style="margin: 0 12px 10px;width: 320px;" onchange="window.location.href=this.options[this.selectedIndex].value">
 				<!--Default Value-->
-				<option selected value="./admin.php?v=null"> -- Seleccione -- </option>				
-				
-				<!--Block Identifier-->
-				<option disabled>NOMBRE DE BLOQUE</option>				
-				<!--Options-->
-				<option value="./admin.php?v=opcion1" <?php echo ($a == 'opcion1' or $a == '') ? 'selected="selected"':''?> > - opcion1</option>
-				<option value="./admin.php?v=opcion2" <?php echo ($a == 'opcion2' or $a == '') ? 'selected="selected"':''?> > - opcion2</option>					
-				
-				<!--Block MultiMod Identifier-->
-				<option disabled>NOMBRE BLOQUE MULTIMOD</option>
-				<option value="./admin.php?v=categoriaAdd" <?php echo ($a == 'categoriaAdd' or $a == '') ? 'selected="selected"':''?> > - Agregar categoria</option>
-				<option value="./admin.php?v=categoriaDel" <?php echo ($a == 'categoriaDel' or $a == '') ? 'selected="selected"':''?> > - Eliminar categoria</option>
-				<option value="./admin.php?v=categoriaMod" <?php echo ($a == 'categoriaMod' or $a == '') ? 'selected="selected"':''?> > - Modificar categoria</option>
-			</select>
+				<option selected value="./admin.php?v=null"> -- Seleccione -- </option>	
 
+				<option disabled>DISCOGRAF&Iacute;A</option>
+				<option value="./admin.php?v=discografiaAdd" <?php echo ($a == 'discografiaAdd' or $a == '') ? 'selected="selected"':''?> > - Agregar Disco</option>
+				<option value="./admin.php?v=discografiaDel" <?php echo ($a == 'discografiaDel' or $a == '') ? 'selected="selected"':''?> > - Eliminar Discos</option>
+				<option value="./admin.php?v=discografiaMod" <?php echo ($a == 'discografiaMod' or $a == '') ? 'selected="selected"':''?> > - Modificar Discos</option>			
+				
+				<option disabled>VIDEOS</option>
+				<option value="./admin.php?v=videoAdd" <?php echo ($a == 'videoAdd' or $a == '') ? 'selected="selected"':''?> > - Agregar Video</option>
+				<option value="./admin.php?v=videoDel" <?php echo ($a == 'videoDel' or $a == '') ? 'selected="selected"':''?> > - Eliminar Video</option>
+
+				<option disabled>GALER&Iacute;A</option>
+				<option value="./admin.php?v=imagenAdd" <?php echo ($a == 'imagenAdd' or $a == '') ? 'selected="selected"':''?> > - Agregar Im&aacute;gen</option>
+				<option value="./admin.php?v=imagenDel" <?php echo ($a == 'imagenDel' or $a == '') ? 'selected="selected"':''?> > - Eliminar Im&aacute;genes</option>
+
+				<option disabled>NOTICIA</option>
+				<option value="./admin.php?v=noticiaAdd" <?php echo ($a == 'noticiasAdd' or $a == '') ? 'selected="selected"':''?> > - Agregar Noticia</option>
+				<option value="./admin.php?v=noticiaDel" <?php echo ($a == 'noticiasDel' or $a == '') ? 'selected="selected"':''?> > - Eliminar Noticias</option>
+				<option value="./admin.php?v=noticiaMod" <?php echo ($a == 'noticiasMod' or $a == '') ? 'selected="selected"':''?> > - Modificar Noticias</option>
+
+				<option disabled>DESCARGAS</option>
+				<option value="./admin.php?v=descargaAdd" <?php echo ($a == 'descargaAdd' or $a == '') ? 'selected="selected"':''?> > - Agregar Descarga</option>
+				<option value="./admin.php?v=descargaDel" <?php echo ($a == 'descargaDel' or $a == '') ? 'selected="selected"':''?> > - Eliminar Descargas</option>
+				<option value="./admin.php?v=descargaMod" <?php echo ($a == 'descargaMod' or $a == '') ? 'selected="selected"':''?> > - Modificar Descargas</option>
+			</select>
+			<br>
 			<?php
 				# Session Started:
-				echo "Bienvenido <b>$session->username</b>. &nbsp;&nbsp;[<a href=\"login-update/useredit.php\">Cambiar contrase&ntilde;a</a>] &nbsp;&nbsp;";
-				echo "[<a href=\"login-update/process.php\">Cerrar sesi&oacute;n</a>]"; // SI
+				echo "Bienvenido <b>$session->username</b>. &nbsp;&nbsp;[<a href=\"plugins/login-update/useredit.php\">Cambiar contrase&ntilde;a</a>] &nbsp;&nbsp;";
+				echo "[<a href=\"plugins/login-update/process.php\">Cerrar sesi&oacute;n</a>]"; // SI
 				echo '<br><hr style="margin: 0 0 20px 0;">';
 
 				#Database Information
-				include_once('protegido/mysql.php');
+				include_once('protected/mysql.php');
 
 				#Holder of the content ids
 				$idTxt = ''; 
@@ -177,8 +188,64 @@ function rt_id_decode( $id ){
 					case "":
 			   		break;
 
-					case "Content to modify":
-					@include_once('protegido/vistas/admin/Content_to_modify.php');
+			   		case "discografiaAdd":
+					@include_once('protected/vistas/admin/discografiaAdd.php');
+					break;
+
+					case "discografiaMod":
+					@include_once('protected/vistas/admin/discografiaMod.php');
+					break;
+
+					case "discografiaDel":
+					@include_once('protected/vistas/admin/discografiaDel.php');
+					break;
+
+					case "videoAdd":
+					@include_once('protected/vistas/admin/videoAdd.php');
+					break;
+
+					case "videoMod":
+					@include_once('protected/vistas/admin/videoMod.php');
+					break;
+
+					case "videoDel":
+					@include_once('protected/vistas/admin/videoDel.php');
+					break;
+
+					case "imagenAdd":
+					@include_once('protected/vistas/admin/imagenAdd.php');
+					break;
+
+					case "imagenMod":
+					@include_once('protected/vistas/admin/imagenMod.php');
+					break;
+
+					case "imagenDel":
+					@include_once('protected/vistas/admin/imagenDel.php');
+					break;
+
+					case "noticiaAdd":
+					@include_once('protected/vistas/admin/noticiaAdd.php');
+					break;
+
+					case "noticiaMod":
+					@include_once('protected/vistas/admin/noticiaMod.php');
+					break;
+
+					case "noticiaDel":
+					@include_once('protected/vistas/admin/noticiaDel.php');
+					break;
+
+					case "descargaAdd":
+					@include_once('protected/vistas/admin/descargaAdd.php');
+					break;
+
+					case "descargaMod":
+					@include_once('protected/vistas/admin/descargaMod.php');
+					break;
+
+					case "descargaDel":
+					@include_once('protected/vistas/admin/descargaDel.php');
 					break;
 
 				}
@@ -195,7 +262,7 @@ function rt_id_decode( $id ){
 					<hr style="margin: 0 0 20px 0;">
 
 					<!--Login Form-->
-					<form action="login-update/process.php" method="POST">
+					<form action="plugins/login-update/process.php" method="POST">
 						<table border="0" cellspacing="0" cellpadding="3" style="margin: 0 auto;">
 							<tr><td>Usuario:</td><td><input id="usuario" required="required" type="text" name="user" maxlength="30" value="<?php echo $form->value("user"); ?>"></td><td><?php echo $form->error("user"); ?></td></tr>
 							<tr><td>Contrase&ntilde;a:</td><td><input required="required" type="password" name="pass" maxlength="30" value="<?php echo $form->value("pass"); ?>"></td><td><?php echo $form->error("pass"); ?></td></tr>

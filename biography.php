@@ -230,46 +230,29 @@
 		</div>
 	</div>
 
-
 	<!--Content--> 
 	<div id="mainContent">
 		<div id="divisorPink">
 			<label id="divisorName">
-				LO &Uacute;LTIMO
+				BIOGRAF&Iacute;A
 			</label>
 		</div>
-		<div id="blockContent">
-			<div id="columns">
-				<?php 
-					include_once('protected/mysql.php');
 
-					#Content IDs holders
-					$idTxt = ''; 
-
-					#New Mysql
-					$bd = new MYSQL;
-
-					#Connection to Database
-					$bd->conectar();
-
-					$result = $bd->query('SELECT * FROM news');
-
-					$i = 0;
-					while ( $row = mysql_fetch_assoc($result) )	
-					{
-						$img = $row['image'];
-						$title = $row['title'];
-						$resume = $row['resume'];
-
-						echo '<div class="pin">';
-						echo '<img src="img/news/'.$img.'">';
-						echo '<h3>'.$title.'</h3>';
-						echo '<p>'.$resume.'</p>';
-						echo '</div>';
-					}
-					$bd->desconectar();
-				?>
-		 	</div>
+		<div id="bioContent">
+			<img src="img/banners/bio_block1.jpg">
+			<img src="img/banners/bio_block2.png">
+			<img src="img/banners/bio_block3.png">
+			<img src="img/banners/bio_block4.png">
+			<img src="img/banners/bio_block5.png">
+			<img src="img/banners/bio_block6.png">
+			<img src="img/banners/bio_block7.png">
+			<img src="img/banners/bio_block8.png">
+			<img src="img/banners/bio_block9.png">
+			<img src="img/banners/bio_block10.png">
+			<img src="img/banners/bio_block11.png">
+			<img src="img/banners/bio_block12.png">
+			<img src="img/banners/bio_block13.png">
+			<img src="img/banners/bio_block14.png">
 		</div>
 	</div>
 	<!--End Content-->

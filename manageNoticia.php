@@ -1,21 +1,30 @@
 <?php
-include("login-update/include/session.php");
+echo "hola";
+include("plugins/login-update/include/session.php");
+echo "hola";
 
 if( !( $session->logged_in and $session->isAdmin() and isset( $_POST['Submit'] ) ) ){
 	header('Location: ./');
 }
+echo "hola";
 
-include_once('protegido/mysql.php');
+include_once('protected/mysql.php');
+echo "hola";
 
 # $idTxt = ''; #VARIABLES QUE ALMACENARAN LOS ID'S DEL CONTENIDO
 $bd = new MYSQL;
+echo "hola";
 
 #CONECTAR A LA BD
 $bd->conectar();
+echo "hola";
+	
+echo $_POST['function'];
+echo "hola";
 
 switch ($_POST['function']) {
 	case 'add':
-		$directorio_imagenes = "img/noticia/";
+		$directorio_imagenes = "img/news/";
 		$allowedExts = array( "jpg" , "jpeg", "gif" , "png" );
 		$extension = strtolower( end( explode( "." , $_FILES["file"]["name"] ) ) );
 
@@ -50,7 +59,10 @@ switch ($_POST['function']) {
 		{
 			echo "Invalid file";
 		}
-		$q = 'INSERT INTO noticia (id, nombre, url, img) VALUES (null, "'.$_POST['nombre'].'","'.$_POST['url'].'","'.$name.'");';
+		$q = 'INSERT INTO news (id, image, title, url, resume, content, publish_date) VALUES (null, "'.$name.'","'.$_POST['title'].'","'.$_POST['url'].'","'.$_POST['resume'].'","'.$_POST['content'].'","'.date('Y-m-d').'");';
+
+		echo $q;
+
 		$bd->query($q);
 		break;
 	
@@ -60,13 +72,13 @@ switch ($_POST['function']) {
 		{
 			foreach ($_POST['check_list'] as $checkbox) 
 			{
-				$q = 'SELECT img FROM noticia WHERE id ='.$checkbox;
+				$q = 'SELECT image FROM news WHERE id ='.$checkbox;
 				$result = $bd->query($q);
 
 				$nombre_img = mysql_fetch_assoc($result);
 				//delete('/img/noticia'.$nombre_img);
 
-				$q = 'DELETE FROM noticia WHERE id='.$checkbox;
+				$q = 'DELETE FROM news WHERE id='.$checkbox;
 				$bd->query($q);
 			}
 		}
@@ -76,9 +88,9 @@ switch ($_POST['function']) {
 		$j = 0;
 		while ($j <= $_POST['i']) 
 		{	
-			if (isset($_POST['div'.$j]))
+			if (isset($_POST['div'.$j]) and !empty($_POST['img'.$j]))
 			{
-				$directorio_imagenes = "img/noticia/";
+				$directorio_imagenes = "img/news/";
 				$allowedExts = array( "jpg" , "jpeg", "gif" , "png" );
 				$extension = strtolower( end( explode( "." , $_FILES["file"]["name"] ) ) );
 
@@ -112,7 +124,7 @@ switch ($_POST['function']) {
 					echo "Invalid file";
 				}
 
-				$q = 'UPDATE noticia SET nombre="'.$_POST['nombre'.$j].'",url="'.$_POST['url'.$j].'",img="'.$_POST['mes'.$j].'" WHERE id='.$j;
+				$q = 'UPDATE news SET image="'.$name.'",title="'.$_POST['title'.$j].'",url="'.$_POST['url'.$j].'",resume="'.$_POST['resume'.$j].'",content="'.$_POST['content'.$j].'" WHERE id='.$j;
 				$bd->query($q);
 			}
 			$j++;

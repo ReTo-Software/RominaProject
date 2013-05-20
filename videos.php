@@ -230,47 +230,41 @@
 		</div>
 	</div>
 
-
 	<!--Content--> 
 	<div id="mainContent">
 		<div id="divisorPink">
 			<label id="divisorName">
-				LO &Uacute;LTIMO
+				VIDEOS
 			</label>
 		</div>
-		<div id="blockContent">
-			<div id="columns">
-				<?php 
-					include_once('protected/mysql.php');
 
-					#Content IDs holders
-					$idTxt = ''; 
+		<?php 
+			include_once('protected/mysql.php');
 
-					#New Mysql
-					$bd = new MYSQL;
+			#Content IDs holders
+			$idTxt = ''; 
 
-					#Connection to Database
-					$bd->conectar();
+			#New Mysql
+			$bd = new MYSQL;
 
-					$result = $bd->query('SELECT * FROM news');
+			#Connection to Database
+			$bd->conectar();
 
-					$i = 0;
-					while ( $row = mysql_fetch_assoc($result) )	
-					{
-						$img = $row['image'];
-						$title = $row['title'];
-						$resume = $row['resume'];
+			$result = $bd->query('SELECT * FROM videos');
 
-						echo '<div class="pin">';
-						echo '<img src="img/news/'.$img.'">';
-						echo '<h3>'.$title.'</h3>';
-						echo '<p>'.$resume.'</p>';
-						echo '</div>';
-					}
-					$bd->desconectar();
-				?>
-		 	</div>
-		</div>
+			while ( $row = mysql_fetch_assoc($result) )	
+			{
+				$url = $row['url'];
+				$nombre = $row['nombre'];
+
+				echo '<div id="video">';
+				echo '<div id="content"></div>';
+				echo '<div id="name"><p>'.$nombre.'</p></div>';
+				echo '</div>';
+			}
+			$bd->desconectar();
+
+		 ?>
 	</div>
 	<!--End Content-->
 
